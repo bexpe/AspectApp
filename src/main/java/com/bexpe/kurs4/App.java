@@ -13,5 +13,7 @@ public class App {
         k.pobierzSkladnikiZMagazynu();
         k.przygotujPizze();
         k.wydajPizze();
+        IKucharz pomocnik = (IKucharz) context.getBean("pomocnikKucharza");
+        pomocnik.pobierzSkladnikiZMagazynu();
     }
 }
