@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 public class PomocnikKucharza implements IKucharz {
 
     @Autowired
-    @Qualifier("pomocnik kucharza")
+    @Qualifier("pomocnik_kucharza")
     private IKucharz kucharz;
 
-    public void pobierzSkadnikizMagazynu(int liczbaSkładnikow) {
+    public void pobierzSkladnikiZMagazynu(int liczbaSkładnikow) {
         System.out.println("Pomocnik pobiera " + liczbaSkładnikow + "z Magazynu");
     }
 

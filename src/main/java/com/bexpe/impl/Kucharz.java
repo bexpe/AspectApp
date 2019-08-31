@@ -1,7 +1,9 @@
 package com.bexpe.impl;
 
 import com.bexpe.api.IKucharz;
+import org.springframework.beans.factory.annotation.Qualifier;
 
+@Qualifier("kucharz")
 public class Kucharz implements IKucharz {
     public void pobierzSkladnikiZMagazynu() {
         System.out.println("Kucharz pobiera skladniki z magazynu");
@@ -15,7 +17,7 @@ public class Kucharz implements IKucharz {
         System.out.println("Kucharz wydaje pizze");
     }
 
-    public void pobierzSkadnikizMagazynu(int liczbaSkladnikow) {
+    public void pobierzSkladnikiZMagazynu(int liczbaSkladnikow) {
         System.out.println("Kucharz pobiera" + liczbaSkladnikow + "skladnikow");
     }
 
