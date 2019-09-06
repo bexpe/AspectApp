@@ -4,12 +4,12 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 
 @Aspect
-public class Komunikacja {
+public class Comunication {
 
     @Pointcut("args(argumentInt)")
     public void pointcutInt(int argumentInt) {}
 
-    @Pointcut("target(com.bexpe.api.IKucharz)")
+    @Pointcut("target(com.bexpe.api.ICook)")
     public void pointcutTarget(){
     }
 
@@ -17,13 +17,13 @@ public class Komunikacja {
     public void pointcutTargetAnnotation(Deprecated annotation){
     }
 
-    @Pointcut("within(com.bexpe.impl.Kucharz)")
+    @Pointcut("within(com.bexpe.impl.Cook)")
     public void pointcutWithin(){
     }
 
     @Before("pointcutWithin()")
-    public void porada() {
-        System.out.println("PORADA ");
+    public void advice() {
+        System.out.println("advice ");
     }
 
 //    @After("execution(* com.bexpe.api.IKucharz.pobierzSkladnikiZMagazynu(..))")

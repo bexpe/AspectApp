@@ -6,20 +6,20 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
-public class KontrolaMagazynu {
+public class WarehouseControl {
 
-    @Pointcut("execution(* com.bexpe.api.IKucharz.pobierzSkladnikiZMagazynu(..))")
+    @Pointcut("execution(* com.bexpe.api.ICook.takeIngredientsFromWarehouse(..))")
     public void pointCut() {
 
     }
 
     @Before("pointCut()")
-    public void sprawdzSkladnikiMagazynu() {
-        System.out.println("sprawdzam stan magazynowy");
+    public void checkWarehouse() {
+        System.out.println("Checking warehouse");
     }
 
     @AfterThrowing("pointCut()")
-    public void zglosBrakiWMagazynie() {
-        System.out.println("Braki w magazynie");
+    public void reportDeficiencesInWarehouse() {
+        System.out.println("Run out of ingredients");
     }
 }

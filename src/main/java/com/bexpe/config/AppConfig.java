@@ -1,13 +1,13 @@
 package com.bexpe.config;
 
-import com.bexpe.api.IKucharz;
-import com.bexpe.api.InterfejsZapiekanka;
-import com.bexpe.aspects.AspektZapiekanka;
-import com.bexpe.aspects.Komunikacja;
-import com.bexpe.aspects.KontrolaMagazynu;
-import com.bexpe.impl.ImplZapiekanka;
-import com.bexpe.impl.Kucharz;
-import com.bexpe.impl.PomocnikKucharza;
+import com.bexpe.api.ICasserole;
+import com.bexpe.api.ICook;
+import com.bexpe.aspects.CasseroleAspect;
+import com.bexpe.aspects.Comunication;
+import com.bexpe.aspects.WarehouseControl;
+import com.bexpe.impl.CasseroleImpl;
+import com.bexpe.impl.Cook;
+import com.bexpe.impl.CooksHelper;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,34 +18,34 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 public class AppConfig {
 
     @Bean
-    public InterfejsZapiekanka interfejsZapiekanka() {
-        return new ImplZapiekanka();
+    public ICasserole casseroleInterface() {
+        return new CasseroleImpl();
     }
 
     @Bean
-    public AspektZapiekanka aspektZapiekanka(){
-        return new AspektZapiekanka();
+    public CasseroleAspect casseroleAspect(){
+        return new CasseroleAspect();
     }
 
     @Bean
-    @Qualifier("kucharz")
-    public IKucharz kucharz() {
-        return new Kucharz();
+    @Qualifier("cook")
+    public ICook cook() {
+        return new Cook();
     }
 
     @Bean
-    @Qualifier("pomocnik_kucharza")
-    public IKucharz pomocnikKucharza() {
-        return new PomocnikKucharza();
+    @Qualifier("cooks_helper")
+    public ICook cooksHelper() {
+        return new CooksHelper();
     }
 
     @Bean
-    public Komunikacja komunikacja() {
-        return new Komunikacja();
+    public Comunication comunication() {
+        return new Comunication();
     }
 
     @Bean
-    public KontrolaMagazynu kontrolaMagazynu() {
-        return new KontrolaMagazynu();
+    public WarehouseControl warehouseControl() {
+        return new WarehouseControl();
     }
 }
