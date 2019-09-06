@@ -26,20 +26,20 @@ public class Comunication {
         System.out.println("advice ");
     }
 
-//    @After("execution(* com.bexpe.api.IKucharz.pobierzSkladnikiZMagazynu(..))")
-//    public void poinformujOPobraniuSkladnikow() {
-//        System.out.println("pobrano skladniki");
-//    }
-//
-//    @Around("execution(* com.bexpe.api.IKucharz.wydajPizze(..))")
-//    public void wydaniePizzy(ProceedingJoinPoint joinPoint) {
-//        try {
-//            System.out.println("Pizza jest gotowa do wydania");
-//            joinPoint.proceed();
-//            System.out.println("Wydano pizze");
-//
-//        } catch (Throwable e) {
-//            e.printStackTrace();
-//        }
-//    }
+    @After("execution(* com.bexpe.api.ICook.takeIngredientsFromWarehouse(..))")
+    public void informAboutTakingIngredients() {
+        System.out.println("Ingredients has been taken");
+    }
+
+    @Around("execution(* com.bexpe.api.ICook.givePizzaAway(..))")
+    public void givingPizzaAway(ProceedingJoinPoint joinPoint) {
+        try {
+            System.out.println("Pizza is ready to give away");
+            joinPoint.proceed();
+            System.out.println("Pizza has been given away");
+
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+    }
 }

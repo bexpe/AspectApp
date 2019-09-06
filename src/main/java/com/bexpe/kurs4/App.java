@@ -10,7 +10,8 @@ import java.lang.annotation.Annotation;
 public class App {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-        ICook k = (ICook) context.getBean("cook");
-        ((ICasserole)k).prepareCasserole();
+        ICook c = (ICook) context.getBean("cook");
+        ((ICasserole)c).prepareCasserole();
+        c.preparePizza(5);
     }
 }
