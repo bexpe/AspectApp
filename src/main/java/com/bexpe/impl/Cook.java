@@ -5,6 +5,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 @Qualifier("cook")
 public class Cook implements ICook {
+
+    String name;
+    String surname;
+    int age;
+
     public void takeIngredientsFromWarehouse() {
         System.out.println("Cook is taking food from warehouse");
     }
@@ -23,5 +28,29 @@ public class Cook implements ICook {
 
     public void preparePizza(int idPizza) {
         System.out.println("Cook is preparing pizza with id " + idPizza);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }
